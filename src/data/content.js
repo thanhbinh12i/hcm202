@@ -239,5 +239,19 @@ export const sections = [
     layout: 'outro',
     conclusion: 'Tư tưởng Hồ Chí Minh về CNXH là một hệ thống lý luận mở, luôn coi trọng thực tiễn và lợi ích của nhân dân. Trong thế giới hiện đại, tư tưởng này chính là cơ sở để Việt Nam hội nhập nhưng không mất bản sắc, phát triển kinh tế gắn liền với công bằng xã hội.',
     items: []
+  },
+  {
+    id: 'video',
+    title: 'VIDEO TỔNG KẾT',
+    description: 'Video tổng hợp về tư tưởng Hồ Chí Minh và chủ nghĩa xã hội.',
+    layout: 'video',
+    items: [
+      {
+        id: 'video-1',
+        title: 'Tư tưởng Hồ Chí Minh về CNXH',
+        description: 'Video tổng hợp những nội dung cốt lõi về tư tưởng Hồ Chí Minh trong xây dựng chủ nghĩa xã hội tại Việt Nam.',
+        videoUrl: 'https://youtu.be/l3yH_7RIDXk',
+      }
+    ]
   }
 ];

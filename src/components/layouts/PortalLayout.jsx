@@ -7,11 +7,11 @@ export const PortalLayout = ({ items, setActiveItem }) => {
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(5, 200px)", // 5 columns, no wrap
+        gridTemplateColumns: "repeat(5, 250px)", // 5 columns, no wrap
         gap: "20px",
         justifyContent: "center",
         width: "100%",
-        maxWidth: "1100px",
+        maxWidth: "1400px",
         margin: "0 auto",
       }}
     >
@@ -24,7 +24,7 @@ export const PortalLayout = ({ items, setActiveItem }) => {
           whileHover={{ scale: 1.05 }}
           style={{
             position: "relative",
-            width: "200px",
+            width: "250px",
             height: "380px", // More compact vertical height
             borderRadius: "6px",
             overflow: "hidden",

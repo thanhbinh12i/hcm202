@@ -5,7 +5,8 @@ import { GalleryLayout } from "./layouts/GalleryLayout";
 import { PortalLayout } from "./layouts/PortalLayout";
 import { SlabLayout } from "./layouts/SlabLayout";
 import { TimelineLayout } from "./layouts/TimelineLayout";
-import { SingleLayout } from "./layouts/SingleLayout"; // NEW
+import { SingleLayout } from "./layouts/SingleLayout";
+import { VideoLayout } from "./layouts/VideoLayout"; // NEW
 import { FocusPanel } from "./FocusPanel";
 
 export const Section = ({ data, index, scrollProgress, setLocked }) => {
@@ -50,6 +51,8 @@ export const Section = ({ data, index, scrollProgress, setLocked }) => {
         return (
           <SingleLayout items={data.items} setActiveItem={setActiveItem} />
         );
+      case "video":
+        return <VideoLayout items={data.items} />;
       default:
         return null;
     }
