@@ -11,7 +11,7 @@ export const sections = [
     id: 'sec1',
     title: 'I. BẢN CHẤT VÀ ĐẶC TRƯNG TỔNG QUÁT CỦA CNXH',
     description: 'Hồ Chí Minh tiếp cận CNXH từ nhiều phương diện: lý luận Mác-Lênin, đạo đức, văn hoá và lòng yêu nước.',
-    layout: 'gallery',
+    layout: 'gallery', // 4 items → gallery (4 cards ngang)
     items: [
       {
         id: '1-1',
@@ -51,7 +51,7 @@ export const sections = [
     id: 'sec2',
     title: 'II. MỤC TIÊU VÀ ĐỘNG LỰC CỦA CNXH',
     description: 'Hệ thống mục tiêu chung và cụ thể, cùng các nguồn động lực để xây dựng CNXH.',
-    layout: 'portal',
+    layout: 'slabs', // 2 items → slabs (2 panels mở rộng)
     items: [
       {
         id: '2-1',
@@ -75,7 +75,7 @@ export const sections = [
     id: 'sec3',
     title: 'III. CON ĐƯỜNG QUÁ ĐỘ LÊN CNXH TẠI VIỆT NAM',
     description: 'Đặc điểm, nhiệm vụ và phương châm xây dựng CNXH trong điều kiện Việt Nam.',
-    layout: 'slabs',
+    layout: 'slabs', // 3 items → slabs (giữ nguyên)
     items: [
       {
         id: '3-1',
@@ -107,7 +107,7 @@ export const sections = [
     id: 'sec4',
     title: 'IV. PHƯƠNG CHÂM VÀ BIỆN PHÁP XÂY DỰNG',
     description: 'Những nguyên tắc chỉ đạo và biện pháp cơ bản trong quá trình xây dựng CNXH theo tư tưởng Hồ Chí Minh.',
-    layout: 'portal',
+    layout: 'single', // 1 item → layout mới "single"
     items: [
       {
         id: '4-1',
@@ -123,11 +123,11 @@ export const sections = [
     id: 'sec5',
     title: 'V. VẬN DỤNG TƯ TƯỞNG HỒ CHÍ MINH VỀ CNXH HIỆN NAY',
     description: 'Tư tưởng Hồ Chí Minh về CNXH còn phù hợp không? Có — nhưng cần hiểu và vận dụng theo cách thích ứng, sáng tạo.',
-    layout: 'portal',
+    layout: 'slabs', // 3 items → slabs
     items: [
       {
         id: '5-1',
-        title: '1. Mục tiêu phổ quát, không lỗi thời',
+        title: '1. Mục tiêu phổ quát',
         description: 'Mục tiêu "dân giàu, nước mạnh, công bằng, văn minh" là phổ quát và không lỗi thời. Dù phương tiện đạt mục tiêu thay đổi (thị trường, công nghệ), mục tiêu xã hội vẫn phù hợp với thời đại.',
         context: 'Giá trị trường tồn',
         citation: 'Cương lĩnh xây dựng đất nước',
@@ -136,15 +136,15 @@ export const sections = [
       {
         id: '5-2',
         title: '2. Kinh tế thị trường định hướng XHCN',
-        description: 'Hình thức tổ chức kinh tế có thể dùng cơ chế thị trường, nhưng phải định hướng xã hội chủ nghĩa: tức là giữ vai trò điều tiết của Nhà nước để bảo đảm công bằng, tránh lợi ích tư nhân chi phối toàn bộ. Đây là mô hình mà Việt Nam đã lựa chọn.',
+        description: 'Hình thức tổ chức kinh tế có thể dùng cơ chế thị trường, nhưng phải định hướng xã hội chủ nghĩa: tức là giữ vai trò điều tiết của Nhà nước để bảo đảm công bằng, tránh lợi ích tư nhân chi phối toàn bộ.',
         context: 'Mô hình kinh tế Việt Nam',
         citation: 'Đường lối đổi mới của Đảng',
         image: 'https://res.cloudinary.com/dbyupgagn/image/upload/v1768571141/img12_nsjklx.jpg'
       },
       {
         id: '5-3',
-        title: '3. CMCN 4.0 và tư tưởng Hồ Chí Minh',
-        description: 'Cách mạng công nghiệp 4.0 không mâu thuẫn với tư tưởng Bác mà trái lại là phương tiện để tăng năng suất, nâng cao đời sống, mở rộng cơ hội học tập. Tuy nhiên cũng đặt ra rủi ro (bất bình đẳng, mất việc do tự động hoá) cần chính sách kịp thời.',
+        title: '3. CMCN 4.0 và tư tưởng Bác',
+        description: 'Cách mạng công nghiệp 4.0 không mâu thuẫn với tư tưởng Bác mà trái lại là phương tiện để tăng năng suất, nâng cao đời sống, mở rộng cơ hội học tập. Tuy nhiên cũng đặt ra rủi ro cần chính sách kịp thời.',
         context: 'Cơ hội và thách thức',
         citation: 'Vận dụng sáng tạo trong thời đại mới',
         image: 'https://res.cloudinary.com/dbyupgagn/image/upload/v1768571140/img13_ikkqou.jpg'
@@ -154,12 +154,12 @@ export const sections = [
   {
     id: 'sec6',
     title: 'VI. VẬN DỤNG CỤ THỂ TRONG THỰC TIỄN HIỆN ĐẠI',
-    description: 'Trong thực tiễn hiện đại cần hiểu CNXH kiểu "Hồ Chí Minh" thế nào cho đúng? — Một số điểm vận dụng cụ thể.',
-    layout: 'portal',
+    description: 'Trong thực tiễn hiện đại cần hiểu CNXH kiểu "Hồ Chí Minh" thế nào cho đúng?',
+    layout: 'portal', // 5 items → portal (5 columns)
     items: [
       {
         id: '6-1',
-        title: '1. Giữ mục tiêu nhưng đổi mới công cụ',
+        title: '1. Đổi mới công cụ',
         description: 'Mục tiêu "dân giàu, nước mạnh" vẫn là kim chỉ nam; công cụ là phát triển lực lượng sản xuất bằng thị trường + đổi mới công nghệ, đầu tư cho khoa học–giáo dục.',
         context: 'Kế thừa và phát triển',
         citation: 'Đường lối đổi mới của Đảng',
@@ -167,7 +167,7 @@ export const sections = [
       },
       {
         id: '6-2',
-        title: '2. Nhà nước điều tiết, bảo đảm an sinh',
+        title: '2. Bảo đảm an sinh',
         description: 'Để thị trường tạo của cải nhưng Nhà nước phải can thiệp để hạn chế phân hoá, bảo vệ nhóm yếu thế và cung cấp dịch vụ công cơ bản (y tế, giáo dục, bảo hiểm).',
         context: 'Vai trò của Nhà nước',
         citation: 'Chính sách an sinh xã hội',
@@ -175,7 +175,7 @@ export const sections = [
       },
       {
         id: '6-3',
-        title: '3. Phát triển con người toàn diện',
+        title: '3. Con người toàn diện',
         description: 'Đầu tư mạnh cho giáo dục, đào tạo lại lực lượng lao động trong kỷ nguyên 4.0, và chú trọng giáo dục đạo đức — đúng tinh thần "có đức, có tài" của Bác.',
         context: 'Con người là trung tâm',
         citation: 'Tư tưởng Hồ Chí Minh về giáo dục',
@@ -183,31 +183,31 @@ export const sections = [
       },
       {
         id: '6-4',
-        title: '4. Cân bằng tăng trưởng với tiến bộ xã hội',
-        description: 'Không chạy theo GDP mà bỏ quên công bằng, môi trường, văn hoá — điều này hoàn toàn trùng khớp với quan điểm Hồ Chí Minh về phát triển toàn diện và bền vững.',
-        context: 'Phát triển bền vững',
+        title: '4. Phát triển bền vững',
+        description: 'Không chạy theo GDP mà bỏ quên công bằng, môi trường, văn hoá — điều này hoàn toàn trùng khớp với quan điểm Hồ Chí Minh về phát triển toàn diện.',
+        context: 'Cân bằng tăng trưởng',
         citation: 'Quan điểm phát triển toàn diện',
         image: 'https://res.cloudinary.com/dbyupgagn/image/upload/v1768571136/img17_aw1imx.png'
       },
       {
         id: '6-5',
-        title: '5. Đổi mới thể chế & quản trị nhà nước',
+        title: '5. Đổi mới thể chế',
         description: 'Minh bạch, pháp quyền, chống tham nhũng để nguồn lực phục vụ nhân dân thực sự. Đây là hệ quả thực tiễn từ mục tiêu dân giàu, nước mạnh.',
-        context: 'Xây dựng Nhà nước pháp quyền',
-        citation: 'Cải cách hành chính và chống tham nhũng',
+        context: 'Nhà nước pháp quyền',
+        citation: 'Cải cách hành chính',
         image: 'https://res.cloudinary.com/dbyupgagn/image/upload/v1768571135/img18_hg8eom.jpg'
       }
     ]
   },
   {
     id: 'sec7',
-    title: 'VII. THÁCH THỨC KHI TRIỂN KHAI TƯ TƯỞNG HỒ CHÍ MINH HIỆN NAY',
-    description: 'Những thách thức lớn cần giải quyết khi hiểu và triển khai tư tưởng ấy hôm nay. Những thách thức này yêu cầu cơ chế Nhà nước chủ động, chính sách an sinh, giáo dục và luật pháp hiệu quả.',
-    layout: 'portal',
+    title: 'VII. THÁCH THỨC HIỆN NAY',
+    description: 'Những thách thức lớn cần giải quyết khi triển khai tư tưởng Hồ Chí Minh trong thời đại mới.',
+    layout: 'slabs', // 3 items → timeline (layout 2-1-2 nhưng chỉ dùng 3)
     items: [
       {
         id: '7-1',
-        title: '1. Khoảng cách giàu–nghèo, bất bình đẳng vùng miền',
+        title: '1. Bất bình đẳng',
         description: 'Thị trường có thể làm giãn cách khoảng cách giàu–nghèo giữa các tầng lớp xã hội và bất bình đẳng giữa các vùng miền. Cần chính sách điều tiết để đảm bảo phát triển đồng đều.',
         context: 'Thách thức về công bằng xã hội',
         citation: 'Mặt trái của kinh tế thị trường',
@@ -215,7 +215,7 @@ export const sections = [
       },
       {
         id: '7-2',
-        title: '2. Thay đổi công nghệ gây thất nghiệp cơ cấu',
+        title: '2. Thất nghiệp cơ cấu',
         description: 'Thay đổi công nghệ nhanh chóng trong kỷ nguyên 4.0 gây thất nghiệp cơ cấu nếu không có chính sách đào tạo lại kịp thời. Cần đầu tư mạnh vào giáo dục và chuyển đổi nghề nghiệp.',
         context: 'Thách thức về lao động việc làm',
         citation: 'Tác động của CMCN 4.0',
@@ -223,8 +223,8 @@ export const sections = [
       },
       {
         id: '7-3',
-        title: '3. Quản trị, thể chế chưa đủ mạnh',
-        description: 'Quản trị, thể chế chưa đủ mạnh để nhận diện và giải quyết "mặt trái" của thị trường như tham nhũng, trục lợi. Cần hoàn thiện hệ thống pháp luật và nâng cao năng lực quản trị nhà nước.',
+        title: '3. Thể chế yếu',
+        description: 'Quản trị, thể chế chưa đủ mạnh để nhận diện và giải quyết "mặt trái" của thị trường như tham nhũng, trục lợi. Cần hoàn thiện hệ thống pháp luật.',
         context: 'Thách thức về thể chế',
         citation: 'Yêu cầu cải cách hành chính',
         image: 'https://res.cloudinary.com/dbyupgagn/image/upload/v1768571133/img21_kcvkun.png'
@@ -236,6 +236,7 @@ export const sections = [
     title: 'LỜI KẾT',
     description: '"Tôi chỉ có một sự ham muốn, ham muốn tột bậc, là làm sao cho nước ta được hoàn toàn độc lập, dân ta được hoàn toàn tự do, đồng bào ai cũng có cơm ăn áo mặc, ai cũng được học hành." — Hồ Chí Minh',
     type: 'outro',
+    layout: 'outro',
     conclusion: 'Tư tưởng Hồ Chí Minh về CNXH là một hệ thống lý luận mở, luôn coi trọng thực tiễn và lợi ích của nhân dân. Trong thế giới hiện đại, tư tưởng này chính là cơ sở để Việt Nam hội nhập nhưng không mất bản sắc, phát triển kinh tế gắn liền với công bằng xã hội.',
     items: []
   }

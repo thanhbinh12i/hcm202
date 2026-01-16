@@ -35,14 +35,13 @@ export const CoreFocusPanel = ({ item, onClose }) => {
           }}
           onClick={onClose}
         >
-          {/* Center Panel */}
           <motion.div
             className="focus-panel-card"
             style={{
               display: "grid",
-              gridTemplateColumns: "40% 60%",
-              width: "80vw",
-              height: "70vh",
+              gridTemplateColumns: "45% 55%",
+              width: "85vw",
+              height: "75vh",
               maxWidth: "1200px",
               background: "#111",
               borderRadius: "8px",
@@ -55,80 +54,95 @@ export const CoreFocusPanel = ({ item, onClose }) => {
             {/* Left: Content */}
             <div
               style={{
-                padding: "3rem",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
+                height: "100%",
                 position: "relative",
               }}
             >
-              <button
-                onClick={onClose}
+              {/* Fixed Header */}
+              <div
                 style={{
-                  position: "absolute",
-                  top: "2rem",
-                  left: "3rem",
-                  background: "none",
-                  border: "none",
-                  color: "#666",
-                  cursor: "pointer",
-                  fontSize: "0.9rem",
-                  textTransform: "uppercase",
-                  letterSpacing: "1px",
-                  padding: 0,
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
+                  padding: "2rem 2.5rem 1rem 2.5rem",
+                  borderBottom: "1px solid #222",
+                  flexShrink: 0,
                 }}
               >
-                ← Quay lại
-              </button>
-
-              <motion.h2
-                layoutId={`title-${item.id}`}
-                style={{
-                  fontSize: "2.5rem",
-                  marginBottom: "1.5rem",
-                  lineHeight: 1.1,
-                  fontWeight: 300,
-                  color: "#fff",
-                  marginTop: "2rem",
-                }}
-              >
-                {item.title}
-              </motion.h2>
-
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                style={{
-                  fontSize: "1.1rem",
-                  color: "#ccc",
-                  lineHeight: "1.6",
-                  marginBottom: "2rem",
-                }}
-              >
-                {item.description}
-              </motion.p>
-
-              {item.context && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
+                <button
+                  onClick={onClose}
                   style={{
-                    fontSize: "0.9rem",
-                    color: "#888",
-                    borderLeft: "1px solid #444",
-                    paddingLeft: "1rem",
-                    fontStyle: "italic",
+                    background: "none",
+                    border: "none",
+                    color: "#666",
+                    cursor: "pointer",
+                    fontSize: "0.85rem",
+                    textTransform: "uppercase",
+                    letterSpacing: "1px",
+                    padding: 0,
                     marginBottom: "1rem",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
                   }}
                 >
-                  {item.context}
-                </motion.div>
-              )}
+                  ← Quay lại
+                </button>
+
+                <motion.h2
+                  layoutId={`title-${item.id}`}
+                  style={{
+                    fontSize: "2rem",
+                    lineHeight: 1.2,
+                    fontWeight: 400,
+                    color: "#fff",
+                    margin: 0,
+                  }}
+                >
+                  {item.title}
+                </motion.h2>
+              </div>
+
+              {/* Scrollable Content */}
+              <div
+                style={{
+                  flex: 1,
+                  overflowY: "auto",
+                  padding: "1.5rem 2.5rem 2rem 2.5rem",
+                }}
+              >
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  style={{
+                    fontSize: "1rem",
+                    color: "#ccc",
+                    lineHeight: "1.9",
+                    whiteSpace: "pre-line",
+                    margin: 0,
+                  }}
+                >
+                  {item.description}
+                </motion.p>
+
+                {item.context && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    style={{
+                      fontSize: "0.9rem",
+                      color: "#888",
+                      borderLeft: "2px solid #444",
+                      paddingLeft: "1rem",
+                      fontStyle: "italic",
+                      marginTop: "1.5rem",
+                    }}
+                  >
+                    {item.context}
+                  </motion.div>
+                )}
+              </div>
             </div>
 
             {/* Right: Image */}
@@ -156,7 +170,7 @@ export const CoreFocusPanel = ({ item, onClose }) => {
                   position: "absolute",
                   inset: 0,
                   background:
-                    "linear-gradient(to right, #111 0%, transparent 20%)",
+                    "linear-gradient(to right, #111 0%, transparent 25%)",
                 }}
               />
             </div>

@@ -61,17 +61,6 @@ function App() {
 
       {/* Render Sections */}
       {sections.map((section, i) => {
-        if (section.id === "sec2") {
-          return (
-            <SectionCoreContent
-              key={section.id}
-              data={section}
-              index={i}
-              scrollProgress={scrollProgress}
-              setLocked={setIsLocked}
-            />
-          );
-        }
         return (
           <Section
             key={section.id}

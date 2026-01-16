@@ -4,10 +4,6 @@ import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 export const FocusPanel = ({ item, onClose }) => {
-  // If no item, we rely on AnimatePresence to handle exit of previous item.
-  // But we need to ensure we don't return null immediately if hidden.
-  // Actually, we ALWAYS render Portal providing AnimatePresence.
-
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (item && e.key === "Escape") onClose();
@@ -39,14 +35,13 @@ export const FocusPanel = ({ item, onClose }) => {
           }}
           onClick={onClose}
         >
-          {/* Center Panel */}
           <motion.div
             className="focus-panel-card"
             style={{
               display: "grid",
-              gridTemplateColumns: "40% 60%",
-              width: "80vw",
-              height: "70vh",
+              gridTemplateColumns: "45% 55%",
+              width: "85vw",
+              height: "75vh",
               maxWidth: "1200px",
               background: "#111",
               borderRadius: "8px",
@@ -59,167 +54,201 @@ export const FocusPanel = ({ item, onClose }) => {
             {/* Left: Content */}
             <div
               style={{
-                padding: "3rem",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
+                height: "100%",
                 position: "relative",
               }}
             >
-              <button
-                onClick={onClose}
+              {/* Fixed Header */}
+              <div
                 style={{
-                  position: "absolute",
-                  top: "2rem",
-                  left: "3rem",
-                  background: "none",
-                  border: "none",
-                  color: "#666",
-                  cursor: "pointer",
-                  fontSize: "0.9rem",
-                  textTransform: "uppercase",
-                  letterSpacing: "1px",
-                  padding: 0,
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
+                  padding: "2rem 2.5rem 1rem 2.5rem",
+                  borderBottom: "1px solid #222",
+                  flexShrink: 0,
                 }}
               >
-                ← Quay lại
-              </button>
-
-              <motion.h2
-                layoutId={`title-${item.id}`}
-                style={{
-                  fontSize: "2.5rem",
-                  marginBottom: "1.5rem",
-                  lineHeight: 1.1,
-                  fontWeight: 300,
-                  color: "#fff",
-                  marginTop: "2rem",
-                }}
-              >
-                {item.title}
-              </motion.h2>
-
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                style={{
-                  fontSize: "1.1rem",
-                  color: "#ccc",
-                  lineHeight: "1.6",
-                  marginBottom: "2rem",
-                }}
-              >
-                {item.description}
-              </motion.p>
-
-              {item.context && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
+                <button
+                  onClick={onClose}
                   style={{
-                    fontSize: "0.9rem",
-                    color: "#888",
-                    borderLeft: "1px solid #444",
-                    paddingLeft: "1rem",
-                    fontStyle: "italic",
-                    marginBottom: "2rem",
-                  }}
-                >
-                  {item.context}
-                </motion.div>
-              )}
-
-              {/* Extended Content for Section 4 */}
-              {(item.achievement || item.challenge) && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  style={{
+                    background: "none",
+                    border: "none",
+                    color: "#666",
+                    cursor: "pointer",
+                    fontSize: "0.85rem",
+                    textTransform: "uppercase",
+                    letterSpacing: "1px",
+                    padding: 0,
+                    marginBottom: "1rem",
                     display: "flex",
-                    flexDirection: "column",
-                    gap: "1.5rem",
-                    marginTop: "1rem",
+                    alignItems: "center",
+                    gap: "8px",
                   }}
                 >
-                  {item.achievement && (
-                    <div
-                      style={{
-                        padding: "1rem",
-                        background: "rgba(76, 175, 80, 0.1)",
-                        borderLeft: "4px solid #4caf50",
-                        borderRadius: "0 4px 4px 0",
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "10px",
-                          marginBottom: "0.5rem",
-                        }}
-                      >
-                        <span style={{ color: "#4caf50", fontSize: "1.2rem" }}>
-                          ✔
-                        </span>
-                        <strong
-                          style={{
-                            color: "#4caf50",
-                            textTransform: "uppercase",
-                            fontSize: "0.9rem",
-                          }}
-                        >
-                          Thành Tựu
-                        </strong>
-                      </div>
-                      <p style={{ color: "#eee", margin: 0, lineHeight: 1.5 }}>
-                        {item.achievement}
-                      </p>
-                    </div>
-                  )}
+                  ← Quay lại
+                </button>
 
-                  {item.challenge && (
-                    <div
-                      style={{
-                        padding: "1rem",
-                        background: "rgba(255, 152, 0, 0.1)",
-                        borderLeft: "4px solid #ff9800",
-                        borderRadius: "0 4px 4px 0",
-                      }}
-                    >
+                <motion.h2
+                  layoutId={`title-${item.id}`}
+                  style={{
+                    fontSize: "2rem",
+                    lineHeight: 1.2,
+                    fontWeight: 400,
+                    color: "#fff",
+                    margin: 0,
+                  }}
+                >
+                  {item.title}
+                </motion.h2>
+              </div>
+
+              {/* Scrollable Content */}
+              <div
+                style={{
+                  flex: 1,
+                  overflowY: "auto",
+                  padding: "1.5rem 2.5rem 2rem 2.5rem",
+                }}
+              >
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  style={{
+                    fontSize: "1rem",
+                    color: "#ccc",
+                    lineHeight: "1.9",
+                    marginBottom: "1.5rem",
+                    whiteSpace: "pre-line",
+                    margin: 0,
+                  }}
+                >
+                  {item.description}
+                </motion.p>
+
+                {item.context && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    style={{
+                      fontSize: "0.9rem",
+                      color: "#888",
+                      borderLeft: "2px solid #444",
+                      paddingLeft: "1rem",
+                      fontStyle: "italic",
+                      marginTop: "1.5rem",
+                    }}
+                  >
+                    {item.context}
+                  </motion.div>
+                )}
+
+                {/* Extended Content */}
+                {(item.achievement || item.challenge) && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "1.5rem",
+                      marginTop: "1.5rem",
+                    }}
+                  >
+                    {item.achievement && (
                       <div
                         style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "10px",
-                          marginBottom: "0.5rem",
+                          padding: "1rem",
+                          background: "rgba(76, 175, 80, 0.1)",
+                          borderLeft: "4px solid #4caf50",
+                          borderRadius: "0 4px 4px 0",
                         }}
                       >
-                        <span style={{ color: "#ff9800", fontSize: "1.2rem" }}>
-                          ⚠
-                        </span>
-                        <strong
+                        <div
                           style={{
-                            color: "#ff9800",
-                            textTransform: "uppercase",
-                            fontSize: "0.9rem",
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "10px",
+                            marginBottom: "0.5rem",
                           }}
                         >
-                          Thách Thức
-                        </strong>
+                          <span
+                            style={{ color: "#4caf50", fontSize: "1.2rem" }}
+                          >
+                            ✔
+                          </span>
+                          <strong
+                            style={{
+                              color: "#4caf50",
+                              textTransform: "uppercase",
+                              fontSize: "0.85rem",
+                            }}
+                          >
+                            Thành Tựu
+                          </strong>
+                        </div>
+                        <p
+                          style={{
+                            color: "#eee",
+                            margin: 0,
+                            lineHeight: 1.6,
+                            whiteSpace: "pre-line",
+                          }}
+                        >
+                          {item.achievement}
+                        </p>
                       </div>
-                      <p style={{ color: "#eee", margin: 0, lineHeight: 1.5 }}>
-                        {item.challenge}
-                      </p>
-                    </div>
-                  )}
-                </motion.div>
-              )}
+                    )}
+
+                    {item.challenge && (
+                      <div
+                        style={{
+                          padding: "1rem",
+                          background: "rgba(255, 152, 0, 0.1)",
+                          borderLeft: "4px solid #ff9800",
+                          borderRadius: "0 4px 4px 0",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "10px",
+                            marginBottom: "0.5rem",
+                          }}
+                        >
+                          <span
+                            style={{ color: "#ff9800", fontSize: "1.2rem" }}
+                          >
+                            ⚠
+                          </span>
+                          <strong
+                            style={{
+                              color: "#ff9800",
+                              textTransform: "uppercase",
+                              fontSize: "0.85rem",
+                            }}
+                          >
+                            Thách Thức
+                          </strong>
+                        </div>
+                        <p
+                          style={{
+                            color: "#eee",
+                            margin: 0,
+                            lineHeight: 1.6,
+                            whiteSpace: "pre-line",
+                          }}
+                        >
+                          {item.challenge}
+                        </p>
+                      </div>
+                    )}
+                  </motion.div>
+                )}
+              </div>
             </div>
 
             {/* Right: Image */}
@@ -247,7 +276,7 @@ export const FocusPanel = ({ item, onClose }) => {
                   position: "absolute",
                   inset: 0,
                   background:
-                    "linear-gradient(to right, #111 0%, transparent 20%)",
+                    "linear-gradient(to right, #111 0%, transparent 25%)",
                 }}
               />
             </div>
