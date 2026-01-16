@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useSpring, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { useSpring } from "framer-motion";
 import { sections } from "./data/content";
 import { Section } from "./components/Section";
-import { SectionCoreContent } from "./components/SectionCoreContent";
-import { FocusPanel } from "./components/FocusPanel";
 
 const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
 
