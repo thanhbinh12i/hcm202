@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
-import { AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const TimelineLayout = ({ items }) => {
   const [hoveredItem, setHoveredItem] = useState(null);

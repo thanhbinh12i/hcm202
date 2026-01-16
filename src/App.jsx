@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
-import { useSpring } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { useSpring, AnimatePresence } from "framer-motion";
 import { sections } from "./data/content";
 import { Section } from "./components/Section";
+import { SectionCoreContent } from "./components/SectionCoreContent";
+import { FocusPanel } from "./components/FocusPanel";
 
 const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
 
@@ -59,6 +61,17 @@ function App() {
 
       {/* Render Sections */}
       {sections.map((section, i) => {
+        if (section.id === "sec2") {
+          return (
+            <SectionCoreContent
+              key={section.id}
+              data={section}
+              index={i}
+              scrollProgress={scrollProgress}
+              setLocked={setIsLocked}
+            />
+          );
+        }
         return (
           <Section
             key={section.id}

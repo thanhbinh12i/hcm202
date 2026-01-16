@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 export const SlabLayout = ({ items, setActiveItem }) => {
   const [hoveredId, setHoveredId] = useState(null);

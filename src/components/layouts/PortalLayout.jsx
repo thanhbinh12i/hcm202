@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
+import { motion } from "framer-motion";
 
 export const PortalLayout = ({ items, setActiveItem }) => {
   return (
@@ -15,7 +17,7 @@ export const PortalLayout = ({ items, setActiveItem }) => {
     >
       {items.map((item, index) => (
         <motion.div
-          key={index}
+          key={item.id}
           layoutId={`item-${item.id}`}
           onClick={() => setActiveItem(item)}
           onMouseEnter={() => setActiveItem(item)}

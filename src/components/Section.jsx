@@ -1,5 +1,11 @@
-import { useState, useEffect } from "react";
-import { useTransform, useMotionTemplate } from "framer-motion";
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from "react";
+import {
+  motion,
+  useTransform,
+  useMotionTemplate,
+  AnimatePresence,
+} from "framer-motion";
 import { GalleryLayout } from "./layouts/GalleryLayout";
 import { PortalLayout } from "./layouts/PortalLayout"; // Fallback usage
 import { SlabLayout } from "./layouts/SlabLayout";

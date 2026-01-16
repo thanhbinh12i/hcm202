@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+/* eslint-disable no-unused-vars */
+import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
-import { AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const FocusPanel = ({ item, onClose }) => {
   // If no item, we rely on AnimatePresence to handle exit of previous item.
