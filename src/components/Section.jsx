@@ -6,7 +6,8 @@ import { PortalLayout } from "./layouts/PortalLayout";
 import { SlabLayout } from "./layouts/SlabLayout";
 import { TimelineLayout } from "./layouts/TimelineLayout";
 import { SingleLayout } from "./layouts/SingleLayout";
-import { VideoLayout } from "./layouts/VideoLayout"; // NEW
+import { VideoLayout } from "./layouts/VideoLayout";
+import { OutroLayout } from "./layouts/OutroLayout"; // NEW
 import { FocusPanel } from "./FocusPanel";
 
 export const Section = ({ data, index, scrollProgress, setLocked }) => {
@@ -21,14 +22,14 @@ export const Section = ({ data, index, scrollProgress, setLocked }) => {
   const opacity = useTransform(
     distance,
     [-0.75, -0.5, 0, 0.5, 1],
-    [0, 0, 1, 0.5, 0]
+    [0, 0, 1, 0.5, 0],
   );
   const blurValue = useTransform(distance, [-1, 0, 1, 2], [20, 0, 10, 20]);
   const brightness = useTransform(distance, [-1, 0, 1, 2], [0.5, 1, 0.6, 0.3]);
   const filter = useMotionTemplate`blur(${blurValue}px) brightness(${brightness})`;
   const zIndex = 100 - index;
   const contentPointerEvents = useTransform(distance, (v) =>
-    v > -0.6 && v < 0.6 ? "auto" : "none"
+    v > -0.6 && v < 0.6 ? "auto" : "none",
   );
 
   const renderLayout = () => {
@@ -53,6 +54,8 @@ export const Section = ({ data, index, scrollProgress, setLocked }) => {
         );
       case "video":
         return <VideoLayout items={data.items} />;
+      case "outro":
+        return <OutroLayout data={data} />;
       default:
         return null;
     }
