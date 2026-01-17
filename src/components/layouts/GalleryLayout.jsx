@@ -18,7 +18,6 @@ export const GalleryLayout = ({ items, setActiveItem }) => {
           key={item.id}
           layoutId={`item-${item.id}`}
           onClick={() => setActiveItem(item)} // Also click for mobile/explicit
-          onMouseEnter={() => setActiveItem(item)}
           initial={{ opacity: 0.8, scale: 1 }}
           whileHover={{ opacity: 1, scale: 1.05 }}
           style={{

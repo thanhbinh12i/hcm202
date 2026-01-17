@@ -20,7 +20,6 @@ export const PortalLayout = ({ items, setActiveItem }) => {
           key={item.id}
           layoutId={`item-${item.id}`}
           onClick={() => setActiveItem(item)}
-          onMouseEnter={() => setActiveItem(item)}
           whileHover={{ scale: 1.05 }}
           style={{
             position: "relative",

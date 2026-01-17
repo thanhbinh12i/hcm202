@@ -23,11 +23,7 @@ export const SlabLayout = ({ items, setActiveItem }) => {
           <motion.div
             key={item.id}
             layoutId={`item-${item.id}`}
-            onMouseEnter={() => {
-              setHoveredId(item.id);
-              setActiveItem(item);
-            }}
-            onMouseLeave={() => setHoveredId(null)}
+            onClick={() => setActiveItem(item)}
             animate={{ flex: flexValue }}
             transition={{ duration: 0.6, ease: "anticipate" }}
             style={{
